@@ -1,0 +1,87 @@
+---
+title: "Springboard Capstone DataStory: Milestone Report"
+author: "Cathy Kiriakos"
+date: "November 2, 2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("magick")
+library(magick)
+```
+
+![](/Users/kiriakosc/.git/Springboard_Capstone/FearofTechnology.jpg)
+
+## An Introduction to the problem:
+
+
+###Why technology is not embraced 
+
+
+I currently work for a small electric cooperative, I have been working at this cooperative for a little over a year at this point.  Many have heard the saying that government is inefficient, this holds true to small cooperatives as well.  My philosophy about the inability to innovate is that for this type of organization, comes down to one basic premise that income is guaranteed.  The cities that we provide power to will always be a source of income, as long as they're happy and are provided with cost effective power, we have no need to innovate or use technology to improve processes. This is a widely held belief among the leaders of the organization, and I feel strongly that they are content with outdated processes because they've seen no other way. In an organization where technology is feared and not trusted, getting buy in on data solutions has been difficult or rather non-existent. In order to change this widely held acceptance of of antiquated processes, we will need to establish buy in from both the departmental as well as senior level leadership. Technology is always improving and evolving, it will require the adoption of an lifetime learning attitude as well as the technological improvements, and systems needed to cut manpower and a department that is currently overrun with overtime approvals.  This capstone project will be a snapshot  of the way that we can easily access needed data, and ways that we can innovate and improve both processes and financial reporting.
+
+
+
+
+![](/Users/kiriakosc/.git/Springboard_Capstone/InefficientDataPrep.jpg)
+
+
+#The first of many issues: 
+
+##Segmented Data and Manual Processes
+
+The first major issue that the organization has from a financial standpoint is that our data tables are not accessible or in the same software for easy access and compilation.  As a business manager I have been responsible for obtaining all expenditure data from our general ledger and , this comes from a separate access query.  On a monthly basis actuals are pulled from our general ledger, and then from a separate program the details that are associated with each expenditure are exported.  Currently the general ledger information is very vague, and it is necessary to pull the details from this other software called "Avantis" in order to determine, vendor name and number, as well as any purchase order and work order detail to get a full picture of what each entry from the general ledger is telling. This linking of data between systems is done via an entirely manual process using Microsoft Excel, and my goal is to automate the process so that the data is available and ready for analysis in a quick and efficient manner.  In addition this method will reduce the room for error, and assist others that may not have the skills readily available to do this type of work quickly, efficiently, and without errors. 
+
+
+
+![](/Users/kiriakosc/.git/Springboard_Capstone/LookingBackwards.jpg)
+
+
+#The second of many issues: 
+
+##You can not move forward, when always looking backwards
+
+The second major issue with our current processes is that we are always looking backwards.  Currently our books close on the 5the business day after the reporting month.  Reports are generated using an antiquated software called F9, this reporting shows monthly budget and expenditure data, as well as year to date budget and expenditures, and lastly all in budget and expenditures and their associated budget to actual variance.  These initial reports are very vague, it rolls up all expenditures and budget lines into an expense code category, and if the departments choose to use them activity codes to identify key areas of expenditures. Our roles as business managers is to dig into the details of each variance and see what is driving it either from a budget standpoint, or looking at what expenditures are exceeding budget and this is accomplished by viewing their budget lines and the vendor detail that is obtained manually by the business managers. The reports that drive our variance reporting are finalized on the 10the business day, and final variances are due back to accounting on the 15the business day. Once reporting is finalized we report our findings to all of our respective departments, I currently have 16 departments that I report back to.  Looking at the timeline, my departments are learning about last month's budget variances at nearly 2 months after their occurrence.  This reporting does not add a whole lot of value due to the time needed to run through such a manual process.  By automating the data compilation process, we should be able to turn around reporting to departments more quickly for analysis.  
+
+
+
+
+![](/Users/kiriakosc/.git/Springboard_Capstone/Forecasting.jpg)
+
+
+#The third of many issues: 
+
+##A Scientific Method to O&M Forecasting is Truly Needed 
+
+When asking departments, what is the one thing you would value the most from Finance.  Overwhelmingly it is valid forecasting methods.  There is a need for scientific based O&M expenditure forecasting for our departments.  This forecasting would provide an scientific approach to forecasting year-end expenditure estimates.  This will be accomplished by using seasonal data trends with 3 years of historical expenditure data in a time series analysis.
+
+
+
+##A Deeper Dive Into the Data Set: 
+
+###Important fields in the data set: 
+The important fields in the data set includes the following: 
+  * Budget & Actuals: Actual historical expenditures as well as budget data have been combined into the same data set in order to get variance data for both monthly and     annual varianec details
+  
+  * Designation if Capital or Operations & Maintenance (O&M) this will allow analysis of pertinant information, accomplished using logic
+  
+  * Linked base general ledger informaiton to the purchase order system data in Avantis accomplished using a merge function
+      - This includes Vendor Name, Purchase Order Number, Purchase Order Title, Purchase Order Line, Purchase Order Line Description
+      
+  * Merged activity code descriptions, account number descriptions, and expense code descriptions
+  
+  * Season designation for each month of data 
+
+###Limitations of the data set: 
+
+Some of the larger budgets that are largely uncontrollable are in our Facilities Departments.  In an effort to keep the test data set small and concise, I have pulled three years of historical expenditure data from our Facilities Department located at the main office. Some limitations of this data is that for this project I have only used one department and three years of historical data.  My goal is to eventually apply this same logic to all 31 of the departments within our organization.  In order to develop a stronger forecast I may need more years of data, or incorporate different independent variables into my forecast, for an example historical weather information for our generation and transmission departments.  
+
+###Preliminary Exploration, Initial Findings, and  determined approach: 
+
+At this point in time I feel it would be best to use a time series analysis to develop an Operations and Maintenance forecast for our facilities department.  Initially I was planning on using a gaussian approach, but now I feel that time series will get the job done. 
+
+
+
+
+
